@@ -1,7 +1,1 @@
-type su, domain;
-permissive su;
-type su_exec, exec_type, file_type;
-domain_auto_trans(shell, su_exec, su)
-
-# su is unconfined.
-unconfined_domain(su)
+allow system su:binder call;

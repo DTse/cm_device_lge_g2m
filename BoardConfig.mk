@@ -239,7 +239,6 @@ BOARD_SEPOLICY_UNION += \
        mtp.te \
        dex2oat.te \
        netd.te \
-       su_user.te \
        dhcp.te \
        netmgrd.te \
        system_app.te \

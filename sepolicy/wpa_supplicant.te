@@ -1,8 +1,8 @@
-# wpa - wpa supplicant or equivalent
-type wpa, domain;
-permissive wpa;
-type wpa_exec, exec_type, file_type;
+allow wpa init:unix_dgram_socket { read write };
 
-init_daemon_domain(wpa)
-unconfined_domain(wpa)
-type_transition wpa wifi_data_file:sock_file wpa_socket;
+# logwrapper used with wpa_supplicant
+allow wpa devpts:chr_file { read write };
+
+allow wpa wpa_socket:unix_dgram_socket { read write };
+allow wpa_socket system:unix_dgram_socket sendto;
+allow wpa wifi_data_file:sock_file { write unlink };

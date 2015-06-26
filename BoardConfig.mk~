@@ -209,8 +209,7 @@ BOARD_SEPOLICY_UNION += \
        keystore.te \
        seapp_contexts \
        binderservicedomain.te \
-       libqc-opt.te \
-       security_classes \
+       libqc-opt.te \su
        bluetoothd.te \
        lmkd.te \
        bluetooth_loader.te \
@@ -240,7 +239,6 @@ BOARD_SEPOLICY_UNION += \
        mtp.te \
        dex2oat.te \
        netd.te \
-       su_user.te \
        dhcp.te \
        netmgrd.te \
        system_app.te \

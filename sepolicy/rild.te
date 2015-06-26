@@ -1,11 +1,15 @@
-# rild - radio interface layer daemon
-type rild, domain;
-permissive rild;
-type rild_exec, exec_type, file_type;
+allow rild self:netlink_socket { create bind read write };
+allow rild self:netlink_route_socket { write };
 
-init_daemon_domain(rild)
-net_domain(rild)
-unconfined_domain(rild)
+# Talk to qmuxd
+qmux_socket(rild)
 
-# Access to wake locks
-allow rild sysfs_wake_lock:file rw_file_perms;
+# Allow logging diagnostic items
+allow rild diagnostic_device:chr_file rw_file_perms;
+
+# XXX label with own type?
+allow rild sysfs:file { read open write getattr };
+
+allow rild self:socket { read write create ioctl };
+
+allow rild self:netlink_kobject_uevent_socket { read bind create setopt getopt };

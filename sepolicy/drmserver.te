@@ -1,7 +1,2 @@
-# drmserver - DRM service
-type drmserver, domain;
-permissive drmserver;
-type drmserver_exec, exec_type, file_type;
-
-init_daemon_domain(drmserver)
-unconfined_domain(drmserver)
+# Drm wants to read /firmware/image/tzapps.mdt
+r_dir_file(drmserver, radio_efs_file)
